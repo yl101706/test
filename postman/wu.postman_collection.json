@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "b8e17964-dad7-4f27-9f66-42839f94f1f6",
+		"name": "测试批量",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "正确登录",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7d7f36cf-0bd1-4ca6-8c9c-3ddc5a66f66e",
+						"exec": [
+							"var data = JSON.parse(responseBody); // 拿到接口的返回值定义一个变量data，responseBody是包含整个返回内容的字符串",
+							"pm.globals.unset(\"variable_key\");  //清除之前的设置的 变量 ",
+							"pm.environment.set(\"access_token\", data.data.access_token) //提取返回的值，放到环境变量名里面 这个是提取的返回access_token的值",
+							"",
+							"",
+							"pm.test(\"断言\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "cdadmin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "301ef7c13ff273fca2f70d5cc91270b82771bb3e4dd517f44ac5a4fa8593d1c9",
+							"type": "text"
+						},
+						{
+							"key": "formPlat",
+							"value": "web",
+							"type": "text"
+						},
+						{
+							"key": "codeId",
+							"value": "ecde7a2c-bef7-4e89-885e-57fcf516724c",
+							"type": "text"
+						},
+						{
+							"key": "codeValue",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "sysId",
+							"value": "1000000000000000001",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://192.168.4.124:19098/sys/login"
+			},
+			"response": []
+		},
+		{
+			"name": "错误登录",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7d7f36cf-0bd1-4ca6-8c9c-3ddc5a66f66e",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"fail\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "cdadmin1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "301ef7c13ff273fca2f70d5cc91270b82771bb3e4dd517f44ac5a4fa8593d1c9",
+							"type": "text"
+						},
+						{
+							"key": "formPlat",
+							"value": "web",
+							"type": "text"
+						},
+						{
+							"key": "codeId",
+							"value": "ecde7a2c-bef7-4e89-885e-57fcf516724c",
+							"type": "text"
+						},
+						{
+							"key": "codeValue",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "sysId",
+							"value": "1000000000000000001",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://192.168.4.124:19098/sys/login"
+			},
+			"response": []
+		}
+	]
+}

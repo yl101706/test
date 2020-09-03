@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="测试批量" tests="2" time="0.261">
+  <testsuite name="正确登录" id="d097a3d7-dbba-4b28-a96f-c3bd41dbccbd" timestamp="2020-09-03T07:35:25.980Z" tests="1" failures="0" errors="0" time="0.189">
+    <testcase name="断言" time="0.189" classname=""/>
+  </testsuite>
+  <testsuite name="错误登录" id="1d382e86-481e-4bab-93f5-65ee791a2aa0" timestamp="2020-09-03T07:35:25.980Z" tests="1" failures="0" errors="0" time="0.072">
+    <testcase name="Body matches string" time="0.072" classname=""/>
+  </testsuite>
+</testsuites>
